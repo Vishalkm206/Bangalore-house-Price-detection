@@ -32,13 +32,14 @@ def load_saved_artifacts():
     global __data_columns
     global __location
     global __model
-    with open("server/artifacts/columns.json","r") as fileobj:
+    with open("d:/Project/bangaluru_House_data/Bangalore-house-Price-detection/server/artifacts/columns.json","r") as fileobj:
         __data_columns = json.load(fileobj)["data_columns"]
         __location = __data_columns[3:]
-    with open("server/artifacts/bangluru_home_price_model.pickle","rb") as fileobj:
+    with open("d:/Project/bangaluru_House_data/Bangalore-house-Price-detection/server/artifacts/bangluru_home_price_model.pickle","rb") as fileobj:
         __model = pickle.load(fileobj)
     print("artifacts Loaded Successfully....")
 if __name__ =="__main__":
     load_saved_artifacts()
-    print(get_location_names())
+    # print(get_location_names())
+    print(__data_columns)
     print(get_estimated_price("1st phase jp nagar",1000,2,3))
